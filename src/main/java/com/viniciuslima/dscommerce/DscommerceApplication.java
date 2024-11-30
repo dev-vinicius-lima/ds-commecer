@@ -10,5 +10,4 @@ public class DscommerceApplication {
         SpringApplication.run(DscommerceApplication.class, args);
         System.out.println("PROJETO DS-COMMERCE INICIADO...\uD83D\uDE80 \uD83D\uDE80 \uD83D\uDE80");
     }
-
 }
