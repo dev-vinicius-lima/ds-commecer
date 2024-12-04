@@ -1,5 +1,6 @@
 package com.viniciuslima.dscommerce.controllers;
 
+import com.fasterxml.jackson.databind.exc.InvalidDefinitionException;
 import com.viniciuslima.dscommerce.dto.ProductDTO;
 import com.viniciuslima.dscommerce.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
