@@ -1,5 +1,6 @@
 package com.viniciuslima.dscommerce.entities;
 
+import com.viniciuslima.dscommerce.dto.OrderItemDTO;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -71,4 +72,5 @@ public class OrderItem {
     public int hashCode() {
         return Objects.hashCode(id);
     }
+
 }
