@@ -1,7 +1,9 @@
 package com.viniciuslima.dscommerce.services;
 
+import com.viniciuslima.dscommerce.dto.CategoryDTO;
 import com.viniciuslima.dscommerce.dto.ProductDTO;
 import com.viniciuslima.dscommerce.dto.ProductMinDTO;
+import com.viniciuslima.dscommerce.entities.Category;
 import com.viniciuslima.dscommerce.entities.Product;
 import com.viniciuslima.dscommerce.repositories.ProductRepository;
 import com.viniciuslima.dscommerce.services.exceptions.DatabaseException;
@@ -72,5 +74,14 @@ public class ProductService {
         entity.setDescription(dto.getDescription());
         entity.setPrice(dto.getPrice());
         entity.setImgURL(dto.getImgUrl());
+
+        entity.getCategories().clear();
+
+        for (CategoryDTO cat : dto.getCategories()) {
+            Category category = new Category();
+            category.setId(cat.getId());
+            category.setName(cat.getName());
+            entity.getCategories().add(category);
+        }
     }
 }
