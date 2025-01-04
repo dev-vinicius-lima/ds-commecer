@@ -3,6 +3,7 @@ package com.viniciuslima.dscommerce.controllers.handlers;
 import com.viniciuslima.dscommerce.dto.CustomError;
 import com.viniciuslima.dscommerce.dto.ValidationError;
 import com.viniciuslima.dscommerce.services.exceptions.DatabaseException;
+import com.viniciuslima.dscommerce.services.exceptions.ForbiddenException;
 import com.viniciuslima.dscommerce.services.exceptions.ResourceNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.coyote.Response;
@@ -44,5 +45,13 @@ public class ControllerExceptionHandler {
 
         return ResponseEntity.status(status).body(error);
     }
+
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<CustomError> forbidden(ForbiddenException e, HttpServletRequest request) {
+        HttpStatus status = HttpStatus.FORBIDDEN;
+        CustomError error = new CustomError(Instant.now(), status.value(), e.getMessage(), request.getRequestURI());
+        return ResponseEntity.status(status).body(error);
+    }
+
 
 }
